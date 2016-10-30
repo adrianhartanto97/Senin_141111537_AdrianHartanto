@@ -1,4 +1,4 @@
-﻿namespace Latihan_4_1
+﻿namespace Latihan_5_1
 {
     partial class Form1
     {
@@ -28,12 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
-            this.tombol_bold = new System.Windows.Forms.ToolStripButton();
-            this.tombol_italic = new System.Windows.Forms.ToolStripButton();
-            this.tombol_underline = new System.Windows.Forms.ToolStripButton();
             this.toolStripComboBox2 = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripComboBox3 = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripComboBox4 = new System.Windows.Forms.ToolStripComboBox();
@@ -47,8 +45,19 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.cutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pasteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editorToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.tombol_bold = new System.Windows.Forms.ToolStripButton();
+            this.tombol_italic = new System.Windows.Forms.ToolStripButton();
+            this.tombol_underline = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -73,39 +82,6 @@
             this.toolStripComboBox1.Size = new System.Drawing.Size(75, 25);
             this.toolStripComboBox1.SelectedIndexChanged += new System.EventHandler(this.toolStripComboBox1_SelectedIndexChanged);
             // 
-            // tombol_bold
-            // 
-            this.tombol_bold.CheckOnClick = true;
-            this.tombol_bold.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tombol_bold.Image = global::Latihan_4_1.Properties.Resources.bold;
-            this.tombol_bold.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tombol_bold.Name = "tombol_bold";
-            this.tombol_bold.Size = new System.Drawing.Size(23, 22);
-            this.tombol_bold.Text = "B";
-            this.tombol_bold.Click += new System.EventHandler(this.tombol_bold_Click);
-            // 
-            // tombol_italic
-            // 
-            this.tombol_italic.CheckOnClick = true;
-            this.tombol_italic.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tombol_italic.Image = ((System.Drawing.Image)(resources.GetObject("tombol_italic.Image")));
-            this.tombol_italic.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tombol_italic.Name = "tombol_italic";
-            this.tombol_italic.Size = new System.Drawing.Size(23, 22);
-            this.tombol_italic.Text = "toolStripButton2";
-            this.tombol_italic.Click += new System.EventHandler(this.tombol_italic_Click);
-            // 
-            // tombol_underline
-            // 
-            this.tombol_underline.CheckOnClick = true;
-            this.tombol_underline.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tombol_underline.Image = global::Latihan_4_1.Properties.Resources.underline;
-            this.tombol_underline.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tombol_underline.Name = "tombol_underline";
-            this.tombol_underline.Size = new System.Drawing.Size(23, 22);
-            this.tombol_underline.Text = "toolStripButton3";
-            this.tombol_underline.Click += new System.EventHandler(this.tombol_underline_Click);
-            // 
             // toolStripComboBox2
             // 
             this.toolStripComboBox2.Name = "toolStripComboBox2";
@@ -126,18 +102,20 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(0, 52);
+            this.richTextBox1.Location = new System.Drawing.Point(0, 48);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(653, 300);
+            this.richTextBox1.Size = new System.Drawing.Size(653, 325);
             this.richTextBox1.TabIndex = 3;
             this.richTextBox1.Text = "";
             this.richTextBox1.SelectionChanged += new System.EventHandler(this.richTextBox1_SelectionChanged);
             this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
+            this.richTextBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.richTextBox1_MouseUp);
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
+            this.fileToolStripMenuItem,
+            this.editorToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(653, 24);
@@ -195,14 +173,101 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cutToolStripMenuItem,
+            this.copyToolStripMenuItem,
+            this.pasteToolStripMenuItem,
+            this.deleteToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(108, 92);
+            // 
+            // cutToolStripMenuItem
+            // 
+            this.cutToolStripMenuItem.Name = "cutToolStripMenuItem";
+            this.cutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.cutToolStripMenuItem.Text = "Cut";
+            this.cutToolStripMenuItem.Click += new System.EventHandler(this.cutToolStripMenuItem_Click);
+            // 
+            // copyToolStripMenuItem
+            // 
+            this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.copyToolStripMenuItem.Text = "Copy";
+            this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
+            // 
+            // pasteToolStripMenuItem
+            // 
+            this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
+            this.pasteToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.pasteToolStripMenuItem.Text = "Paste";
+            this.pasteToolStripMenuItem.Click += new System.EventHandler(this.pasteToolStripMenuItem_Click);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
+            // 
+            // editorToolStripMenuItem
+            // 
+            this.editorToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editorToolStripMenuItem1});
+            this.editorToolStripMenuItem.Name = "editorToolStripMenuItem";
+            this.editorToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
+            this.editorToolStripMenuItem.Text = "Setting";
+            // 
+            // editorToolStripMenuItem1
+            // 
+            this.editorToolStripMenuItem1.Name = "editorToolStripMenuItem1";
+            this.editorToolStripMenuItem1.Size = new System.Drawing.Size(105, 22);
+            this.editorToolStripMenuItem1.Text = "Editor";
+            this.editorToolStripMenuItem1.Click += new System.EventHandler(this.editorToolStripMenuItem1_Click);
+            // 
+            // tombol_bold
+            // 
+            this.tombol_bold.CheckOnClick = true;
+            this.tombol_bold.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tombol_bold.Image = global::Latihan_4_1.Properties.Resources.bold;
+            this.tombol_bold.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tombol_bold.Name = "tombol_bold";
+            this.tombol_bold.Size = new System.Drawing.Size(23, 22);
+            this.tombol_bold.Text = "B";
+            this.tombol_bold.Click += new System.EventHandler(this.tombol_bold_Click);
+            // 
+            // tombol_italic
+            // 
+            this.tombol_italic.CheckOnClick = true;
+            this.tombol_italic.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tombol_italic.Image = ((System.Drawing.Image)(resources.GetObject("tombol_italic.Image")));
+            this.tombol_italic.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tombol_italic.Name = "tombol_italic";
+            this.tombol_italic.Size = new System.Drawing.Size(23, 22);
+            this.tombol_italic.Text = "toolStripButton2";
+            this.tombol_italic.Click += new System.EventHandler(this.tombol_italic_Click);
+            // 
+            // tombol_underline
+            // 
+            this.tombol_underline.CheckOnClick = true;
+            this.tombol_underline.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tombol_underline.Image = global::Latihan_4_1.Properties.Resources.underline;
+            this.tombol_underline.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tombol_underline.Name = "tombol_underline";
+            this.tombol_underline.Size = new System.Drawing.Size(23, 22);
+            this.tombol_underline.Text = "toolStripButton3";
+            this.tombol_underline.Click += new System.EventHandler(this.tombol_underline_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(653, 352);
+            this.ClientSize = new System.Drawing.Size(653, 375);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.richTextBox1);
+            this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
@@ -212,6 +277,7 @@
             this.toolStrip1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -237,6 +303,13 @@
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.ToolStripComboBox toolStripComboBox4;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem cutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem copyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pasteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editorToolStripMenuItem1;
 
     }
 }

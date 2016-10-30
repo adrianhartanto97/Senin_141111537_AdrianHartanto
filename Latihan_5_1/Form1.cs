@@ -9,7 +9,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Reflection;
 
-namespace Latihan_4_1
+namespace Latihan_5_1
 {
     public partial class Form1 : Form
     {
@@ -60,6 +60,17 @@ namespace Latihan_4_1
             toolStripComboBox4.ComboBox.DrawMode = DrawMode.OwnerDrawFixed;
 
             update_teks();
+        }
+
+        public string getBackgroundColor()
+        {
+            return richTextBox1.BackColor.Name;
+        }
+
+        public void setBackgroundColor(string color)
+        {
+            richTextBox1.BackColor = Color.FromName(color);
+            richTextBox1.SelectionBackColor = richTextBox1.BackColor;
         }
 
         private void toolStripComboBox2_DrawItem(object sender, DrawItemEventArgs e)
@@ -413,6 +424,77 @@ namespace Latihan_4_1
             richTextBox1.SelectionBackColor = Color.FromName(toolStripComboBox4.Text);
             richTextBox1.Focus();
             richTextBox1.Select(start, length);
+        }
+
+        private void richTextBox1_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                if (richTextBox1.SelectionLength == 0)
+                {
+                    contextMenuStrip1.Items[0].Enabled = false;
+                    contextMenuStrip1.Items[1].Enabled = false;
+                    contextMenuStrip1.Items[3].Enabled = false;
+                }
+                else
+                {
+                    contextMenuStrip1.Items[0].Enabled = true;
+                    contextMenuStrip1.Items[1].Enabled = true;
+                    contextMenuStrip1.Items[3].Enabled = true;
+                }
+                contextMenuStrip1.Show(Cursor.Position.X, Cursor.Position.Y);
+            }
+        }
+
+        private void cutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Cut();
+        }
+
+        private void copyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Copy();
+        }
+
+        private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Clipboard.ContainsText(TextDataFormat.Rtf))
+            {
+                richTextBox1.SelectedRtf = Clipboard.GetData(DataFormats.Rtf).ToString();
+            }
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (richTextBox1.SelectionLength == 0)
+            {
+                return;
+            }
+
+            richTextBox1.SelectedText = "";
+        }
+
+        FormSettingEditor formEditor;
+        private void editorToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+            if (formEditor == null || !formEditor.IsHandleCreated)
+            {
+                formEditor = new FormSettingEditor();
+                formEditor.MdiParent = this;
+                formEditor.BringToFront();
+                richTextBox1.SendToBack();
+                formEditor.Show();
+            }
+            else
+            {
+                formEditor.Show();
+            }
+        }
+        public void showRTB()
+        {
+            richTextBox1.BringToFront();
+            richTextBox1.Focus();
         }
 
     }
