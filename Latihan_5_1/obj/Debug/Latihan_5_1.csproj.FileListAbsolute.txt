@@ -6,3 +6,4 @@ D:\Kuliah\Semester 5\Pemrograman net lanjutan\Senin_141111537_AdrianHartanto\Lat
 D:\Kuliah\Semester 5\Pemrograman net lanjutan\Senin_141111537_AdrianHartanto\Latihan_5_1\obj\Debug\Latihan_4_1.Properties.Resources.resources
 D:\Kuliah\Semester 5\Pemrograman net lanjutan\Senin_141111537_AdrianHartanto\Latihan_5_1\obj\Debug\Latihan_5_1.csproj.GenerateResource.Cache
 D:\Kuliah\Semester 5\Pemrograman net lanjutan\Senin_141111537_AdrianHartanto\Latihan_5_1\obj\Debug\Latihan_5_1.FormSettingEditor.resources
+D:\Kuliah\Semester 5\Pemrograman net lanjutan\Senin_141111537_AdrianHartanto\Latihan_5_1\obj\Debug\Latihan_5_1.csprojResolveAssemblyReference.cache
