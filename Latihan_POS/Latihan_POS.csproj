@@ -59,19 +59,118 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDaftarBarang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDaftarBarang.Designer.cs">
+      <DependentUpon>frmDaftarBarang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDaftarCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDaftarCustomer.Designer.cs">
+      <DependentUpon>frmDaftarCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDaftarSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDaftarSupplier.Designer.cs">
+      <DependentUpon>frmDaftarSupplier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDeleteBarang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDeleteBarang.Designer.cs">
+      <DependentUpon>frmDeleteBarang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDeleteCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDeleteCustomer.Designer.cs">
+      <DependentUpon>frmDeleteCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDeleteSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDeleteSupplier.Designer.cs">
+      <DependentUpon>frmDeleteSupplier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEditBarang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditBarang.Designer.cs">
+      <DependentUpon>frmEditBarang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEditCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditCustomer.Designer.cs">
+      <DependentUpon>frmEditCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEditSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditSupplier.Designer.cs">
+      <DependentUpon>frmEditSupplier.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmRegistrasiBarang.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmRegistrasiBarang.Designer.cs">
       <DependentUpon>frmRegistrasiBarang.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRegistrasiCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRegistrasiCustomer.Designer.cs">
+      <DependentUpon>frmRegistrasiCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRegistrasiSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRegistrasiSupplier.Designer.cs">
+      <DependentUpon>frmRegistrasiSupplier.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmDaftarBarang.resx">
+      <DependentUpon>frmDaftarBarang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDaftarCustomer.resx">
+      <DependentUpon>frmDaftarCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDaftarSupplier.resx">
+      <DependentUpon>frmDaftarSupplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDeleteBarang.resx">
+      <DependentUpon>frmDeleteBarang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDeleteCustomer.resx">
+      <DependentUpon>frmDeleteCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDeleteSupplier.resx">
+      <DependentUpon>frmDeleteSupplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditBarang.resx">
+      <DependentUpon>frmEditBarang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditCustomer.resx">
+      <DependentUpon>frmEditCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditSupplier.resx">
+      <DependentUpon>frmEditSupplier.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmRegistrasiBarang.resx">
       <DependentUpon>frmRegistrasiBarang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRegistrasiCustomer.resx">
+      <DependentUpon>frmRegistrasiCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRegistrasiSupplier.resx">
+      <DependentUpon>frmRegistrasiSupplier.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -10,14 +10,33 @@ using MySql.Data.MySqlClient;
 
 namespace Latihan_POS
 {
-    public partial class frmRegistrasiBarang : Form
+    public partial class frmRegistrasiSupplier : Form
     {
         List<TextBox> listInput = new List<TextBox>();
         static MySqlConnection koneksi = new MySqlConnection("Server=localhost;Port=3306;Database=latihan_pos;Uid=root;password=;");
-        public frmRegistrasiBarang()
+        public frmRegistrasiSupplier()
         {
             InitializeComponent();
-            this.Dock = DockStyle.Fill;         
+        }
+
+        private void frmRegistrasiSupplier_Load(object sender, EventArgs e)
+        {
+            this.Dock = DockStyle.Fill;
+
+            foreach (Control ctrl in this.Controls)
+            {
+                if (ctrl is TextBox)
+                    listInput.Add((TextBox)ctrl);
+            }
+
+            try
+            {
+                koneksi.Open();
+            }
+            catch (MySqlException ec)
+            {
+                MessageBox.Show(ec.Message, "Error");
+            }
         }
 
         private void buka_koneksi()
@@ -32,29 +51,16 @@ namespace Latihan_POS
                 koneksi.Close();
         }
 
-        private void frmRegistrasiBarang_Load(object sender, EventArgs e)
+        private void reset()
         {
-            this.WindowState = FormWindowState.Maximized;
-
-            foreach (Control ctrl in this.Controls)
-            {
-                if (ctrl is TextBox)
-                    listInput.Add((TextBox) ctrl);
-            }
-
-            try
-            {
-                koneksi.Open();
-            }
-            catch (MySqlException ec)
-            {
-                MessageBox.Show(ec.Message, "Error");
-            }
+            txtKode.Text = "";
+            txtNama.Text = "";
+            txtAlamat.Text = "";
         }
 
-        private void frmRegistrasiBarang_FormClosing(object sender, FormClosingEventArgs e)
+        private void btnReset_Click(object sender, EventArgs e)
         {
-            koneksi.Close();
+            reset();
         }
 
         private void btnKeluar_Click(object sender, EventArgs e)
@@ -81,7 +87,7 @@ namespace Latihan_POS
         {
             MySqlCommand cmd = koneksi.CreateCommand();
             bool v = true;
-            string query = "SELECT Kode from barang";
+            string query = "SELECT Kode from customer";
             cmd.CommandText = query;
             buka_koneksi();
             MySqlDataReader reader = cmd.ExecuteReader();
@@ -105,23 +111,21 @@ namespace Latihan_POS
                 {
                     DateTime skrg = DateTime.Now;
                     MySqlCommand cmd = koneksi.CreateCommand();
-                    string insert = "INSERT INTO barang (Kode,Nama,JumlahAwal,HargaHPP,HargaJual,created_at,updated_at)";
-                    insert += " VALUES (@kode,@nama,@jumlahAwal,@hargaHPP,@hargaJual,@createdAt,@updatedAt)";
+                    string insert = "INSERT INTO supplier (Kode,Nama,Alamat,created_at,updated_at)";
+                    insert += " VALUES (@kode,@nama,@alamat,@createdAt,@updatedAt)";
                     try
                     {
                         cmd.CommandText = insert;
                         cmd.Parameters.AddWithValue("@kode", txtKode.Text);
                         cmd.Parameters.AddWithValue("@nama", txtNama.Text);
-                        cmd.Parameters.AddWithValue("@jumlahAwal", Convert.ToInt32(txtJlhAwal.Text));
-                        cmd.Parameters.AddWithValue("@hargaHPP", Convert.ToDecimal(txtHrgHPP.Text));
-                        cmd.Parameters.AddWithValue("@hargaJual", Convert.ToDecimal(txtHargaJual.Text));
+                        cmd.Parameters.AddWithValue("@alamat", txtAlamat.Text);
                         cmd.Parameters.AddWithValue("@createdAt", skrg);
                         cmd.Parameters.AddWithValue("@updatedAt", skrg);
 
                         reset();
                         buka_koneksi();
                         int result = cmd.ExecuteNonQuery();
-                        MessageBox.Show(result + " Barang Berhasil Ditambahkan", "Sukses");
+                        MessageBox.Show(result + " Supplier Berhasil Ditambahkan", "Sukses");
                         tutup_koneksi();
                     }
                     catch (Exception ex)
@@ -129,29 +133,15 @@ namespace Latihan_POS
                         MessageBox.Show(ex.Message, "Error");
                     }
                 }
-                else {
-                    MessageBox.Show("Kode yang Anda masukkan sudah terdaftar, mohon ganti dengan kode lain"); 
+                else
+                {
+                    MessageBox.Show("Kode yang Anda masukkan sudah terdaftar, mohon ganti dengan kode lain");
                 }
             }
             else
             {
                 MessageBox.Show("Mohon Masukkan Data dengan Lengkap");
             }
-        }
-
-        private void reset()
-        {
-            txtKode.Clear();
-            txtNama.Clear();
-            txtJlhAwal.Clear();
-            txtHrgHPP.Clear();
-            txtHargaJual.Clear();
-            txtKode.Focus();
-        }
-
-        private void btnReset_Click(object sender, EventArgs e)
-        {
-            reset();
         }
     }
 }

@@ -7,3 +7,14 @@ D:\Kuliah\Semester 5\Pemrograman net lanjutan\Senin_141111537_AdrianHartanto\Lat
 D:\Kuliah\Semester 5\Pemrograman net lanjutan\Senin_141111537_AdrianHartanto\Latihan_POS\obj\Debug\Latihan_POS.exe
 D:\Kuliah\Semester 5\Pemrograman net lanjutan\Senin_141111537_AdrianHartanto\Latihan_POS\obj\Debug\Latihan_POS.pdb
 D:\Kuliah\Semester 5\Pemrograman net lanjutan\Senin_141111537_AdrianHartanto\Latihan_POS\obj\Debug\Latihan_POS.frmRegistrasiBarang.resources
+D:\Kuliah\Semester 5\Pemrograman net lanjutan\Senin_141111537_AdrianHartanto\Latihan_POS\obj\Debug\Latihan_POS.frmDaftarBarang.resources
+D:\Kuliah\Semester 5\Pemrograman net lanjutan\Senin_141111537_AdrianHartanto\Latihan_POS\obj\Debug\Latihan_POS.frmEditBarang.resources
+D:\Kuliah\Semester 5\Pemrograman net lanjutan\Senin_141111537_AdrianHartanto\Latihan_POS\obj\Debug\Latihan_POS.frmDeleteBarang.resources
+D:\Kuliah\Semester 5\Pemrograman net lanjutan\Senin_141111537_AdrianHartanto\Latihan_POS\obj\Debug\Latihan_POS.frmRegistrasiCustomer.resources
+D:\Kuliah\Semester 5\Pemrograman net lanjutan\Senin_141111537_AdrianHartanto\Latihan_POS\obj\Debug\Latihan_POS.frmDaftarCustomer.resources
+D:\Kuliah\Semester 5\Pemrograman net lanjutan\Senin_141111537_AdrianHartanto\Latihan_POS\obj\Debug\Latihan_POS.frmEditCustomer.resources
+D:\Kuliah\Semester 5\Pemrograman net lanjutan\Senin_141111537_AdrianHartanto\Latihan_POS\obj\Debug\Latihan_POS.frmDeleteCustomer.resources
+D:\Kuliah\Semester 5\Pemrograman net lanjutan\Senin_141111537_AdrianHartanto\Latihan_POS\obj\Debug\Latihan_POS.frmRegistrasiSupplier.resources
+D:\Kuliah\Semester 5\Pemrograman net lanjutan\Senin_141111537_AdrianHartanto\Latihan_POS\obj\Debug\Latihan_POS.frmDaftarSupplier.resources
+D:\Kuliah\Semester 5\Pemrograman net lanjutan\Senin_141111537_AdrianHartanto\Latihan_POS\obj\Debug\Latihan_POS.frmEditSupplier.resources
+D:\Kuliah\Semester 5\Pemrograman net lanjutan\Senin_141111537_AdrianHartanto\Latihan_POS\obj\Debug\Latihan_POS.frmDeleteSupplier.resources

@@ -158,6 +158,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(367, 292);
+            this.ControlBox = false;
             this.Controls.Add(this.btnKeluar);
             this.Controls.Add(this.btnSimpan);
             this.Controls.Add(this.btnReset);
