@@ -53,6 +53,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class\clsBarang.cs" />
+    <Compile Include="Class\clsCustomer.cs" />
+    <Compile Include="Class\clsDatabase.cs" />
+    <Compile Include="Class\clsDetailPembelian.cs" />
+    <Compile Include="Class\clsDetailPenjualan.cs" />
+    <Compile Include="Class\clsPembelian.cs" />
+    <Compile Include="Class\clsPenjualan.cs" />
+    <Compile Include="Class\clsSupplier.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +103,18 @@
     <Compile Include="frmDeleteSupplier.Designer.cs">
       <DependentUpon>frmDeleteSupplier.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDetailPembelian.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDetailPembelian.Designer.cs">
+      <DependentUpon>frmDetailPembelian.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDetailPenjualan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDetailPenjualan.Designer.cs">
+      <DependentUpon>frmDetailPenjualan.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmEditBarang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +132,18 @@
     </Compile>
     <Compile Include="frmEditSupplier.Designer.cs">
       <DependentUpon>frmEditSupplier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPembelian.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPembelian.Designer.cs">
+      <DependentUpon>frmPembelian.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPenjualan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPenjualan.Designer.cs">
+      <DependentUpon>frmPenjualan.cs</DependentUpon>
     </Compile>
     <Compile Include="frmRegistrasiBarang.cs">
       <SubType>Form</SubType>
@@ -154,6 +186,12 @@
     <EmbeddedResource Include="frmDeleteSupplier.resx">
       <DependentUpon>frmDeleteSupplier.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmDetailPembelian.resx">
+      <DependentUpon>frmDetailPembelian.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDetailPenjualan.resx">
+      <DependentUpon>frmDetailPenjualan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmEditBarang.resx">
       <DependentUpon>frmEditBarang.cs</DependentUpon>
     </EmbeddedResource>
@@ -162,6 +200,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmEditSupplier.resx">
       <DependentUpon>frmEditSupplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPembelian.resx">
+      <DependentUpon>frmPembelian.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPenjualan.resx">
+      <DependentUpon>frmPenjualan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRegistrasiBarang.resx">
       <DependentUpon>frmRegistrasiBarang.cs</DependentUpon>

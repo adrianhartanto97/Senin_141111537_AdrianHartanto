@@ -12,7 +12,6 @@ namespace Latihan_POS
 {
     public partial class frmDeleteSupplier : Form
     {
-        static MySqlConnection koneksi = new MySqlConnection("Server=localhost;Port=3306;Database=latihan_pos;Uid=root;password=;");
         public frmDeleteSupplier()
         {
             InitializeComponent();
@@ -24,43 +23,21 @@ namespace Latihan_POS
             this.WindowState = FormWindowState.Maximized;
         }
 
-        private void buka_koneksi()
-        {
-            if (koneksi.State != ConnectionState.Open)
-                koneksi.Open();
-        }
-
-        private void tutup_koneksi()
-        {
-            if (koneksi.State != ConnectionState.Closed)
-                koneksi.Close();
-        }
-
         private void delete_Click(object sender, EventArgs e)
         {
-            string delete = "DELETE FROM supplier WHERE ID = @id";
             try
             {
                 int res;
-                MySqlDataAdapter da = new MySqlDataAdapter();
-                MySqlCommand cmd;
-
-                buka_koneksi();
-                cmd = new MySqlCommand(delete, koneksi);
-                cmd.Parameters.AddWithValue("@id", txtId.Text);
-
-                da.DeleteCommand = cmd;
-
                 DialogResult rslt;
                 rslt = MessageBox.Show("Apakah Anda yakin ?", "Yakin?", MessageBoxButtons.YesNo);
 
                 if (rslt == DialogResult.Yes)
                 {
-                    res = da.DeleteCommand.ExecuteNonQuery();
+                    Class.clsSupplier SupplierHapus = new Class.clsSupplier(Convert.ToInt16(txtId.Text));
+                    res = SupplierHapus.DeleteSupplier();
                     txtId.Text = "";
-                    MessageBox.Show("Informasi Supplier berhasil dihapus", "Deleted");
+                    MessageBox.Show("Supplier berhasil dihapus", "Deleted");
                 }
-                tutup_koneksi();
             }
             catch (Exception ex)
             {

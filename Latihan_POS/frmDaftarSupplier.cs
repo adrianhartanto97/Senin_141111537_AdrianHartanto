@@ -12,7 +12,7 @@ namespace Latihan_POS
 {
     public partial class frmDaftarSupplier : Form
     {
-        static MySqlConnection koneksi = new MySqlConnection("Server=localhost;Port=3306;Database=latihan_pos;Uid=root;password=;");
+        DataTable dtSupplier;
         public frmDaftarSupplier()
         {
             InitializeComponent();
@@ -22,25 +22,19 @@ namespace Latihan_POS
         private void frmDaftarSupplier_Load(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Maximized;
+            dtSupplier = new DataTable();
+            BindingSource bsSupplier = new BindingSource();
+            bsSupplier.DataSource = dtSupplier;
+            dgvSupplier.DataSource = bsSupplier;
             lihatDaftarSupplier();
         }
 
         private void lihatDaftarSupplier()
         {
-            MySqlDataAdapter da;
-            DataSet ds;
             try
             {
-                da = new MySqlDataAdapter("SELECT ID, Kode, Nama, Alamat FROM supplier", koneksi);
-                ds = new DataSet();
-                da.Fill(ds, "supplier");
-                dgvSupplier.ReadOnly = true;
-                dgvSupplier.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
-                dgvSupplier.RowHeadersVisible = false;
-                dgvSupplier.AllowUserToDeleteRows = false;
-                dgvSupplier.AllowUserToAddRows = false;
-                dgvSupplier.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-                dgvSupplier.DataSource = ds.Tables["supplier"];
+                dtSupplier.Clear();
+                Class.clsSupplier.SelectAll().Fill(dtSupplier);
             }
             catch (Exception ex)
             {

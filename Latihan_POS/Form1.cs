@@ -172,6 +172,55 @@ namespace Latihan_POS
             frmDeleteSupplier.Show();
         }
 
+        frmPembelian frmPembelian;
+        private void pembelianToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (frmPembelian == null || !frmPembelian.IsHandleCreated)
+            {
+                frmPembelian = new frmPembelian();
+                frmPembelian.MdiParent = this;
+            }
+            frmPembelian.BringToFront();
+            frmPembelian.Show();
+        }
 
+        frmPenjualan frmPenjualan;
+        private void penjualanToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (frmPenjualan == null || !frmPenjualan.IsHandleCreated)
+            {
+                frmPenjualan = new frmPenjualan();
+                frmPenjualan.MdiParent = this;
+            }
+            frmPenjualan.BringToFront();
+            frmPenjualan.Show();
+        }
+
+        frmDetailPembelian frmDetailPembelian;
+        private void detailPembelianToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (frmDetailPembelian == null || !frmDetailPembelian.IsHandleCreated)
+            {
+                frmDetailPembelian = new frmDetailPembelian();
+                frmDetailPembelian.MdiParent = this;
+            }
+            frmDetailPembelian.BringToFront();
+            frmDetailPembelian.Show();
+        }
+
+        frmDetailPenjualan frmDetailPenjualan;
+        private void detailPenjualanToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (frmDetailPenjualan == null || !frmDetailPenjualan.IsHandleCreated)
+            {
+                frmDetailPenjualan = new frmDetailPenjualan();
+                frmDetailPenjualan.MdiParent = this;
+            }
+            frmDetailPenjualan.BringToFront();
+            frmDetailPenjualan.Show();
+        }
+
+
+        
     }
 }

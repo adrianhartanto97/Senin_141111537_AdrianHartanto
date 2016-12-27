@@ -18,3 +18,7 @@ D:\Kuliah\Semester 5\Pemrograman net lanjutan\Senin_141111537_AdrianHartanto\Lat
 D:\Kuliah\Semester 5\Pemrograman net lanjutan\Senin_141111537_AdrianHartanto\Latihan_POS\obj\Debug\Latihan_POS.frmDaftarSupplier.resources
 D:\Kuliah\Semester 5\Pemrograman net lanjutan\Senin_141111537_AdrianHartanto\Latihan_POS\obj\Debug\Latihan_POS.frmEditSupplier.resources
 D:\Kuliah\Semester 5\Pemrograman net lanjutan\Senin_141111537_AdrianHartanto\Latihan_POS\obj\Debug\Latihan_POS.frmDeleteSupplier.resources
+D:\Kuliah\Semester 5\Pemrograman net lanjutan\Senin_141111537_AdrianHartanto\Latihan_POS\obj\Debug\Latihan_POS.frmPembelian.resources
+D:\Kuliah\Semester 5\Pemrograman net lanjutan\Senin_141111537_AdrianHartanto\Latihan_POS\obj\Debug\Latihan_POS.frmPenjualan.resources
+D:\Kuliah\Semester 5\Pemrograman net lanjutan\Senin_141111537_AdrianHartanto\Latihan_POS\obj\Debug\Latihan_POS.frmDetailPembelian.resources
+D:\Kuliah\Semester 5\Pemrograman net lanjutan\Senin_141111537_AdrianHartanto\Latihan_POS\obj\Debug\Latihan_POS.frmDetailPenjualan.resources

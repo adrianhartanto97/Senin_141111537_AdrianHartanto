@@ -48,14 +48,14 @@
             this.dgvSupplier.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSupplier.Location = new System.Drawing.Point(27, 12);
             this.dgvSupplier.Name = "dgvSupplier";
-            this.dgvSupplier.Size = new System.Drawing.Size(368, 201);
+            this.dgvSupplier.Size = new System.Drawing.Size(469, 201);
             this.dgvSupplier.TabIndex = 3;
             // 
             // frmDaftarSupplier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(412, 295);
+            this.ClientSize = new System.Drawing.Size(517, 295);
             this.ControlBox = false;
             this.Controls.Add(this.refresh);
             this.Controls.Add(this.dgvSupplier);

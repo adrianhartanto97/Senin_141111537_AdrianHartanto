@@ -13,23 +13,10 @@ namespace Latihan_POS
     public partial class frmRegistrasiCustomer : Form
     {
         List<TextBox> listInput = new List<TextBox>();
-        static MySqlConnection koneksi = new MySqlConnection("Server=localhost;Port=3306;Database=latihan_pos;Uid=root;password=;");
         public frmRegistrasiCustomer()
         {
             InitializeComponent();
             this.Dock = DockStyle.Fill;
-        }
-
-        private void buka_koneksi()
-        {
-            if (koneksi.State != ConnectionState.Open)
-                koneksi.Open();
-        }
-
-        private void tutup_koneksi()
-        {
-            if (koneksi.State != ConnectionState.Closed)
-                koneksi.Close();
         }
 
         private void frmRegistrasiCustomer_Load(object sender, EventArgs e)
@@ -44,7 +31,7 @@ namespace Latihan_POS
 
             try
             {
-                koneksi.Open();
+                Class.clsDatabase.buka_koneksi();
             }
             catch (MySqlException ec)
             {
@@ -54,9 +41,11 @@ namespace Latihan_POS
 
         private void reset()
         {
-            txtKode.Text = "";
+            txtZipcode.Text = "";
             txtNama.Text = "";
             txtAlamat.Text = "";
+            txtPhoneNumber.Text = "";
+            txtEmail.Text = "";
         }
 
         private void btnReset_Click(object sender, EventArgs e)
@@ -66,7 +55,7 @@ namespace Latihan_POS
 
         private void btnKeluar_Click(object sender, EventArgs e)
         {
-            tutup_koneksi();
+            Class.clsDatabase.tutup_koneksi();
             this.Close();
         }
 
@@ -84,61 +73,24 @@ namespace Latihan_POS
             return v;
         }
 
-        private bool validasiKode(string teks)
-        {
-            MySqlCommand cmd = koneksi.CreateCommand();
-            bool v = true;
-            string query = "SELECT Kode from customer";
-            cmd.CommandText = query;
-            buka_koneksi();
-            MySqlDataReader reader = cmd.ExecuteReader();
-            while (reader.Read())
-            {
-                if (reader.GetString(0) == teks)
-                {
-                    v = false;
-                    break;
-                }
-            }
-            tutup_koneksi();
-            return v;
-        }
-
         private void btnSimpan_Click(object sender, EventArgs e)
         {
             if (validasi(listInput))
             {
-                if (validasiKode(txtKode.Text))
+                
+                try
                 {
-                    DateTime skrg = DateTime.Now;
-                    MySqlCommand cmd = koneksi.CreateCommand();
-                    string insert = "INSERT INTO customer (Kode,Nama,Alamat,created_at,updated_at)";
-                    insert += " VALUES (@kode,@nama,@alamat,@createdAt,@updatedAt)";
-                    try
-                    {
-                        cmd.CommandText = insert;
-                        cmd.Parameters.AddWithValue("@kode", txtKode.Text);
-                        cmd.Parameters.AddWithValue("@nama", txtNama.Text);
-                        cmd.Parameters.AddWithValue("@alamat", txtAlamat.Text);
-                        cmd.Parameters.AddWithValue("@createdAt", skrg);
-                        cmd.Parameters.AddWithValue("@updatedAt", skrg);
-
-                        reset();
-                        buka_koneksi();
-                        int result = cmd.ExecuteNonQuery();
-                        MessageBox.Show(result + " Customer Berhasil Ditambahkan", "Sukses");
-                        tutup_koneksi();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message, "Error");
-                    }
+                    Class.clsCustomer CustomerBaru = new Class.clsCustomer(txtNama.Text, txtAlamat.Text, txtZipcode.Text, txtPhoneNumber.Text, txtEmail.Text);
+                    int res = CustomerBaru.InsertCustomer();
+                    reset();
+                    MessageBox.Show(res + " Customer berhasil ditambahkan", "Tersimpan");
                 }
-                else
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Kode yang Anda masukkan sudah terdaftar, mohon ganti dengan kode lain");
+                    MessageBox.Show(ex.Message, "Error");
                 }
             }
+                
             else
             {
                 MessageBox.Show("Mohon Masukkan Data dengan Lengkap");

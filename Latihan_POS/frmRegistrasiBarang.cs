@@ -13,23 +13,10 @@ namespace Latihan_POS
     public partial class frmRegistrasiBarang : Form
     {
         List<TextBox> listInput = new List<TextBox>();
-        static MySqlConnection koneksi = new MySqlConnection("Server=localhost;Port=3306;Database=latihan_pos;Uid=root;password=;");
         public frmRegistrasiBarang()
         {
             InitializeComponent();
             this.Dock = DockStyle.Fill;         
-        }
-
-        private void buka_koneksi()
-        {
-            if (koneksi.State != ConnectionState.Open)
-                koneksi.Open();
-        }
-
-        private void tutup_koneksi()
-        {
-            if (koneksi.State != ConnectionState.Closed)
-                koneksi.Close();
         }
 
         private void frmRegistrasiBarang_Load(object sender, EventArgs e)
@@ -44,7 +31,7 @@ namespace Latihan_POS
 
             try
             {
-                koneksi.Open();
+                Class.clsDatabase.buka_koneksi();
             }
             catch (MySqlException ec)
             {
@@ -54,12 +41,12 @@ namespace Latihan_POS
 
         private void frmRegistrasiBarang_FormClosing(object sender, FormClosingEventArgs e)
         {
-            koneksi.Close();
+            Class.clsDatabase.tutup_koneksi();
         }
 
         private void btnKeluar_Click(object sender, EventArgs e)
         {
-            tutup_koneksi();
+            Class.clsDatabase.tutup_koneksi();
             this.Close();
         }
 
@@ -79,11 +66,11 @@ namespace Latihan_POS
 
         private bool validasiKode(string teks)
         {
-            MySqlCommand cmd = koneksi.CreateCommand();
+            MySqlCommand cmd = Class.clsDatabase.koneksi.CreateCommand();
             bool v = true;
             string query = "SELECT Kode from barang";
             cmd.CommandText = query;
-            buka_koneksi();
+            Class.clsDatabase.buka_koneksi();
             MySqlDataReader reader = cmd.ExecuteReader();
             while (reader.Read())
             {
@@ -93,7 +80,7 @@ namespace Latihan_POS
                     break;
                 }
             }
-            tutup_koneksi();
+            Class.clsDatabase.tutup_koneksi();
             return v;
         }
 
@@ -103,26 +90,12 @@ namespace Latihan_POS
             {
                 if (validasiKode(txtKode.Text))
                 {
-                    DateTime skrg = DateTime.Now;
-                    MySqlCommand cmd = koneksi.CreateCommand();
-                    string insert = "INSERT INTO barang (Kode,Nama,JumlahAwal,HargaHPP,HargaJual,created_at,updated_at)";
-                    insert += " VALUES (@kode,@nama,@jumlahAwal,@hargaHPP,@hargaJual,@createdAt,@updatedAt)";
                     try
                     {
-                        cmd.CommandText = insert;
-                        cmd.Parameters.AddWithValue("@kode", txtKode.Text);
-                        cmd.Parameters.AddWithValue("@nama", txtNama.Text);
-                        cmd.Parameters.AddWithValue("@jumlahAwal", Convert.ToInt32(txtJlhAwal.Text));
-                        cmd.Parameters.AddWithValue("@hargaHPP", Convert.ToDecimal(txtHrgHPP.Text));
-                        cmd.Parameters.AddWithValue("@hargaJual", Convert.ToDecimal(txtHargaJual.Text));
-                        cmd.Parameters.AddWithValue("@createdAt", skrg);
-                        cmd.Parameters.AddWithValue("@updatedAt", skrg);
-
+                        Class.clsBarang BarangBaru = new Class.clsBarang(txtKode.Text, txtNama.Text, Convert.ToInt32(txtJlhAwal.Text), Convert.ToDecimal(txtHrgHPP.Text), Convert.ToDecimal(txtHargaJual.Text));
+                        int res = BarangBaru.InsertBarang();
                         reset();
-                        buka_koneksi();
-                        int result = cmd.ExecuteNonQuery();
-                        MessageBox.Show(result + " Barang Berhasil Ditambahkan", "Sukses");
-                        tutup_koneksi();
+                        MessageBox.Show(res + " produk berhasil ditambahkan", "Tersimpan");
                     }
                     catch (Exception ex)
                     {

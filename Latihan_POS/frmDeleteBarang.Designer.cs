@@ -41,7 +41,6 @@
             this.label5.Size = new System.Drawing.Size(18, 13);
             this.label5.TabIndex = 28;
             this.label5.Text = "ID";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // txtId
             // 
@@ -49,7 +48,6 @@
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(171, 20);
             this.txtId.TabIndex = 29;
-            this.txtId.TextChanged += new System.EventHandler(this.txtId_TextChanged);
             // 
             // delete
             // 
